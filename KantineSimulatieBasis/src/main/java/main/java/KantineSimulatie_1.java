@@ -21,21 +21,26 @@ public class KantineSimulatie {
     public void simuleer(int dagen) {
 
         // herhaal voor elke dag
-        for (int i = 0; ...) {
+        for (int i = 0; i < dagen; i++) {
 
             // per dag nu even vast 10 + i personen naar binnen
             // laten gaan, wordt volgende week veranderd...
 
             // for lus voor personen
             for (int j = 0; j < 10 + i; j++) {
-                // kantine.(...);
+                Persoon persoon = new Persoon();
+                kantine.loopPakSluitAan(persoon);
             }
 
             // verwerk rij voor de kassa
+            kantine.verwerkRijVoorKassa();
 
             // toon dagtotalen (artikelen en geld in kassa)
+            kantine.hoeveelheidGeldInKassa();
+            kantine.aantalArtikelen();
 
             // reset de kassa voor de volgende dag
+            kantine.resetKassa();
         }
     }
 
@@ -50,7 +55,7 @@ public class KantineSimulatie {
         } else {
             dagen = Integer.parseInt(args[0]);
         }
-
-        simulate(dagen);
+        KantineSimulatie sim = new KantineSimulatie();
+        sim.simuleer(dagen);
     }
 }
