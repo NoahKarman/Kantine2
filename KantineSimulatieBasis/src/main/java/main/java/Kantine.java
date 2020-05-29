@@ -37,9 +37,7 @@ public class Kantine {
         }
     }
 
-    private Kassa getKassa{
-        return this.kassa;
-    }
+  
 
     /**
      * Deze methode reset de bijgehouden telling van het aantal artikelen en "leegt" de inhoud van
