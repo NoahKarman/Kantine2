@@ -28,6 +28,7 @@ public class Kassa {
      *
      */
     public void rekenAf(Dienblad klant) {
+        dienblad.getAllArtikel();
 
         this.totaalArtikelen += klant.artikelen.size();
         this.totaalPrijs += klant.getTotaalPrijs();

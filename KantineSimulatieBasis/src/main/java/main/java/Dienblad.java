@@ -68,5 +68,13 @@ public class Dienblad {
             this.totaalPrijs += artikel.getPrijs();
         } return this.totaalPrijs;
     }
+
+    public void getAllArtikel(){
+        Iterator<Artikel> it = artikelen.iterator();
+        while(it.hasNext()){
+            Artikel a = it.next();
+            System.out.println(a.getNaam());
+        }
+    }
 }
 

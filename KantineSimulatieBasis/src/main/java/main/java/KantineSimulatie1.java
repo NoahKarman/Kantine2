@@ -1,5 +1,5 @@
 package main.java;
-public class KantineSimulatie {
+public class KantineSimulatie1 {
 
     private Kantine kantine;
 
@@ -8,7 +8,7 @@ public class KantineSimulatie {
     /**
      * Constructor
      */
-    public KantineSimulatie() {
+    public KantineSimulatie1() {
         kantine = new Kantine();
     }
 
@@ -36,8 +36,8 @@ public class KantineSimulatie {
             kantine.verwerkRijVoorKassa();
 
             // toon dagtotalen (artikelen en geld in kassa)
-            kantine.hoeveelheidGeldInKassa();
-            kantine.aantalArtikelen();
+            kantine.getKassa();
+
 
             // reset de kassa voor de volgende dag
             kantine.resetKassa();
