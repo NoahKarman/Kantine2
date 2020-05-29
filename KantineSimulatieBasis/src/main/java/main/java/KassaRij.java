@@ -1,5 +1,6 @@
 package main.java;
 import java.util.ArrayList;
+import java.util.LinkedList;
 
 /**
  * Een KassaRij klasse
@@ -11,14 +12,14 @@ import java.util.ArrayList;
 public class KassaRij {
 
     private Dienblad dienblad;
-    private ArrayList<Dienblad> kassarij;
+    private LinkedList<Dienblad> kassarij;
 
 
     /**
      * Constructor voor de KassaRij klase
      * @param kassarij - Een arraylist met daarin klanten
      */
-    public KassaRij(ArrayList<Dienblad> kassarij) {
+    public KassaRij(LinkedList<Dienblad> kassarij) {
 
         this.kassarij = kassarij;
     }
