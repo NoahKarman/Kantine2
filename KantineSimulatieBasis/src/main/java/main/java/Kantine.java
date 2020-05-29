@@ -3,6 +3,7 @@ public class Kantine {
 
     private Kassa kassa;
     private KassaRij kassarij;
+    private KantineAanbod kantineaanbod;
 
 
     /**
@@ -11,6 +12,8 @@ public class Kantine {
     public Kantine() {
         kassarij = new KassaRij();
         kassa = new Kassa(kassarij);
+        kantineaanbod = new KantineAanbod(KantineAanbod.getAanbod(),kantineaanbod.getPrijzen(),
+                kantineaanbod.getStartVoorraad());
     }
 
     /**
