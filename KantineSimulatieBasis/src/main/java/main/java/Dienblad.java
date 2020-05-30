@@ -15,7 +15,7 @@ public class Dienblad {
     public Stack<Artikel> artikelen;
     private Artikel artikel;
     private Persoon persoon;
-    private int totaalPrijs;
+    private double totaalPrijs;
     private Persoon klant;
 
     /**
@@ -25,14 +25,14 @@ public class Dienblad {
 
         totaalPrijs = 0;
         artikelen = new Stack<>();
+
     }
     /**
      * Constructor
-     * @param totalePrijs - het gehele prijs van alle artikelen op de dienblad
      * @param klant - Het persoon die het dienblad afrekent
      */
-    public Dienblad(int totalePrijs ,Persoon klant ){
-        this.totaalPrijs = totalePrijs;
+    public Dienblad(Persoon klant){
+
         this.klant = klant;
     }
 
@@ -47,6 +47,16 @@ public class Dienblad {
 
     }
 
+
+
+    public void setKlant(Persoon klant) {
+        this.klant = klant;
+    }
+
+    public Persoon getKlant() {
+        return klant;
+    }
+
     /**
      * Methode om aantal artikelen op dienblad te tellen
      *
@@ -58,22 +68,41 @@ public class Dienblad {
     }
 
     /**
+     * Stel het totale prijs in van het dienblad
+     * @param totaalPrijs - het totale prijs van het dienblad
+     */
+
+    public void setTotaalPrijs(double totaalPrijs) {
+        this.totaalPrijs = totaalPrijs;
+        double roundOff = Math.round(totaalPrijs*100.0)/100.0;
+        System.out.println(roundOff);
+    }
+
+    /**
      * Methode om de totaalprijs van de artikelen op dienblad uit te rekenen
      *
      * @return De totaalprijs
      */
-    public int getTotaalPrijs() {
+    public double getTotaalPrijs() {
 
         for (Artikel artikel : artikelen) {
             this.totaalPrijs += artikel.getPrijs();
         } return this.totaalPrijs;
     }
 
+    /**
+     * Methode om door de arrayList te gaan van artikelen , waar als er een volgende artikel op de dienblad ligt
+     * die ook pakt met de Iterator
+     * @return De totaalprijs
+     */
+
     public void getAllArtikel(){
         Iterator<Artikel> it = artikelen.iterator();
         while(it.hasNext()){
             Artikel a = it.next();
             System.out.println(a.getNaam());
+            System.out.println(a.getPrijs());
+
         }
     }
 }

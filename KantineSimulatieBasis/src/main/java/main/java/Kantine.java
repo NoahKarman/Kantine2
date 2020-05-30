@@ -12,8 +12,9 @@ public class Kantine {
     public Kantine() {
         kassarij = new KassaRij();
         kassa = new Kassa(kassarij);
-        kantineaanbod = new KantineAanbod(KantineAanbod.getAanbod(),kantineaanbod.getPrijzen(),
-                kantineaanbod.getStartVoorraad());
+
+
+
     }
 
     /**
@@ -23,18 +24,25 @@ public class Kantine {
         return kassa;
     }
 
+    public KantineAanbod getKantineaanbod() {
+        return kantineaanbod;
+    }
+
+    public void setKantineAanbod(KantineAanbod kantineaanbod) {
+        this.kantineaanbod = kantineaanbod;
+    }
+
     /**
      * In deze methode wordt een Persoon en Dienblad gemaakt en aan elkaar gekoppeld. Maak twee
      * Artikelen aan en plaats deze op het dienblad. Tenslotte sluit de Persoon zich aan bij de rij
      * voor de kassa.
      */
-    public void loopPakSluitAan(Persoon klant) {
-        Dienblad dienblad = new Dienblad(0,klant);
-        Artikel artikel = new Artikel("Kaasbroodje" , 595);
-        Artikel artikel2 = new Artikel("Optimel" , 300);
-        dienblad.voegToe(artikel);
-        dienblad.voegToe(artikel2);
-        kassarij.sluitAchteraan(klant,dienblad);
+    public void loopPakSluitAan(Dienblad dienblad,String[] artikel) {
+       int i;
+        for(i=0;i<artikel.length;i++){
+            kantineaanbod.getAanbod();
+        }
+        kassarij.sluitAchteraan(dienblad.getKlant(),dienblad);
 
     }
 
