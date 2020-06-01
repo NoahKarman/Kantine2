@@ -19,10 +19,10 @@ public class KassaRij {
      * Constructor voor de KassaRij klase
      * @param kassarij - Een arraylist met daarin klanten
      */
-//    public KassaRij(LinkedList<Dienblad> kassarij) {
-//
-//        this.kassarij = kassarij;
-//    }
+    public KassaRij(LinkedList<Dienblad> kassarij) {
+
+        this.kassarij = kassarij;
+    }
 
     public KassaRij() {
         kassarij = new LinkedList<Dienblad>();

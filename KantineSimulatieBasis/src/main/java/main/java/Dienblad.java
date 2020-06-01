@@ -16,7 +16,7 @@ public class Dienblad {
     private Persoon persoon;
     private double totaalPrijs;
     private Persoon klant;
-//    private HashMap<String,Artikel> artikelHashMap;
+
     /**
      * Constructor
      */
@@ -90,9 +90,9 @@ public class Dienblad {
     }
 
     /**
-     * Methode om door de arrayList te gaan van artikelen , waar als er een volgende artikel op de dienblad ligt
-     * die ook pakt met de Iterator
-     * @return De totaalprijs
+     * Methode om door de arrayList te gaan van artikelen , waar als er een volgende artikel op de dienblad ligt,
+     * die ook wordt gepakt en enzovoort.
+     *
      */
 
     public void getAllArtikel(){
@@ -105,15 +105,6 @@ public class Dienblad {
         }
     }
 
-//    public HashMap<String,Artikel> getArtikelenHashMap(){
-//        System.out.println(artikelen.size());
-//        Iterator<Artikel> it = artikelen.iterator();
-//        while(it.hasNext()){
-//            Artikel a = it.next();
-//            artikelHashMap.put(a.getNaam(),a);
-//
-//        }
-//        return artikelHashMap;
-//    }
+
 }
 

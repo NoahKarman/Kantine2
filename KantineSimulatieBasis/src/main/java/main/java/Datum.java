@@ -17,6 +17,7 @@ public class Datum {
 	 * @param dag - Dag van de maand
 	 * @param maand - Maand van het jaar
 	 * @param jaar - Jaar getaal tussen 1900 - 2100
+	 * En een lege parameter constructor.
 	 */
 	public Datum (int dag,int maand,int jaar){
 	if (bestaatDatum(dag,maand,jaar)){
@@ -165,10 +166,20 @@ public class Datum {
 		this.jaar = jaar;
 	}
 
+	/**
+	 *Geeft het Datum als een String.
+	 *
+	 */
+
 	public String getDatumAsString() {
         return setDatumAsString();
 
 	}
+
+	/**
+	 *Stel het Datum in als een String.
+	 *
+	 */
 	public String setDatumAsString(){
 		System.out.println("De main.java.Datum is" + dag +"." + maand + "." + jaar);
 		return null;

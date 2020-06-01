@@ -2,6 +2,15 @@ package main.java;
 
 import java.util.*;
 
+
+/**
+ * Een Een Kantine Simulatie2 klasse
+ *
+ * @author Redouan Klick & Noah Karman
+
+ * @version 22/5/2020
+ */
+
 public class KantineSimulatie2 {
 
     // kantine
@@ -45,7 +54,9 @@ public class KantineSimulatie2 {
 
     /**
      * Constructor
-     *
+     * Maakt nieuw kantine aan met willekurige waarde van (hoevelheiden en soorten artikelen).
+     * Er komt ook een nieuwe kantine aanbod met de artikel namen en prijzen + de willekurige waarden.
+     * Print een artikel uit om te testen dat het werk
      */
     public KantineSimulatie2() {
         kantine = new Kantine();
@@ -58,6 +69,7 @@ public class KantineSimulatie2 {
 
 
         kantine.setKantineAanbod(kantineaanbod);
+        //Print een artikel uit om te testen dat het werk
         System.out.println(artikelnamen[1]);
     }
 
@@ -156,10 +168,6 @@ public class KantineSimulatie2 {
             int dagvandemaand = getRandomValue(MIN_DAGEN_PER_MAAND,MAX_DAGEN_PER_MAAND);
             System.out.println("dag" + dagvandemaand);
             // druk de dagtotalen af
-
-
-
-
 
             kantine.resetKassa();
             // reset de kassa voor de volgende dag

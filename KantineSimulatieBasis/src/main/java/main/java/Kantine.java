@@ -2,6 +2,15 @@ package main.java;
 
 import java.util.HashMap;
 
+
+/**
+ * Een Kantine klasse
+ *
+ * @author Redouan Klick & Noah Karman
+
+ * @version 22/5/2020
+ */
+
 public class Kantine {
 
     private Kassa kassa;
@@ -15,10 +24,6 @@ public class Kantine {
     public Kantine() {
         kassarij = new KassaRij();
         kassa = new Kassa(kassarij);
-
-
-
-
     }
 
     /**
@@ -28,10 +33,16 @@ public class Kantine {
         return kassa;
     }
 
+    /**
+     * Getter voor kantine aanbod
+     */
     public KantineAanbod getKantineaanbod() {
         return kantineaanbod;
     }
 
+    /**
+     * Stelt he kantine aanbod in
+     */
     public void setKantineAanbod(KantineAanbod kantineaanbod) {
         this.kantineaanbod = kantineaanbod;
     }
@@ -48,15 +59,6 @@ public class Kantine {
             String naam = artikel[i];
             Artikel artikelen = kantineaanbod.getArtikel(naam);
             dienblad.voegToe(artikelen);
-
-//            System.out.println("Naam van Artikel: "+naam);
-//            System.out.println(dienblad.getArtikelenHashMap());
-//
-//            HashMap<String,Artikel> Artikelhashmap = dienblad.getArtikelenHashMap();
-//            System.out.println("3");
-//
-//            dienblad.voegToe(Artikelhashmap.get(naam));
-
         }
         kassarij.sluitAchteraan(dienblad);
 

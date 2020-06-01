@@ -2,6 +2,15 @@ package main.java;
 import java.util.Iterator;
 import java.util.ArrayList;
 
+/**
+ * Een Een Kassa klasse
+ *
+ * @author Redouan Klick & Noah Karman
+
+ * @version 22/5/2020
+ */
+
+
 public class Kassa {
 
     private Dienblad dienblad;
