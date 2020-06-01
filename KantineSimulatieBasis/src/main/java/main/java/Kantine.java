@@ -37,7 +37,7 @@ public class Kantine {
         }
     }
 
-  
+  public void
 
     /**
      * Deze methode reset de bijgehouden telling van het aantal artikelen en "leegt" de inhoud van
