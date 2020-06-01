@@ -72,7 +72,6 @@ public class Kantine {
     }
 
 
-
     /**
      * Deze methode reset de bijgehouden telling van het aantal artikelen en "leegt" de inhoud van
      * de kassa.
