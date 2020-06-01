@@ -6,16 +6,22 @@ public class Kassa {
 
     private Dienblad dienblad;
     private Artikel artikel;
-    private int totaalArtikelen;
-    private int totaalPrijs;
+    private int totaalArtikelenKassa;
+    private int totaalGeldKassa;
+    private KassaRij kassarij;
 
     public Kassa(KassaRij kassarij) {
-
+        this.kassarij = kassarij;
     }
 
+    /**
+     * Constructor voor de Kassa klase
+     * @param controleTotalenArtikelen - Geeft het totale nummer van artikelen door
+     * @param controleTotalenGeld - Geeft het totale aantal geld door
+     */
     public Kassa(int controleTotalenArtikelen, int controleTotalenGeld) {
-        this.totaalArtikelen = controleTotalenArtikelen;
-        this.totaalPrijs = controleTotalenGeld;
+        this.totaalArtikelenKassa = controleTotalenArtikelen;
+        this.totaalGeldKassa = controleTotalenGeld;
     }
 
     /**
@@ -28,9 +34,10 @@ public class Kassa {
      *
      */
     public void rekenAf(Dienblad klant) {
+        dienblad.getAllArtikel();
 
-        this.totaalArtikelen += klant.artikelen.size();
-        this.totaalPrijs += klant.getTotaalPrijs();
+        this.totaalArtikelenKassa += klant.artikelen.size();
+        this.totaalGeldKassa += klant.getTotaalPrijs();
     }
 
 
@@ -42,8 +49,18 @@ public class Kassa {
      */
     public int aantalArtikelen() {
 
-        return this.totaalArtikelen;
+        return this.totaalArtikelenKassa;
 
+    }
+    /**
+     * Stelt het totale geld wat in de kassa zit
+     * @param totaalPrijsKassa - Geeft aan hoe veel geld er in de kassa zit
+     */
+
+    public void setTotaalPrijsKassa(int totaalPrijsKassa) {
+        this.totaalGeldKassa = totaalPrijsKassa;
+        double roundOff = Math.round(totaalGeldKassa*100.0)/100.0;
+        System.out.println(roundOff);
     }
 
     /**
@@ -54,7 +71,7 @@ public class Kassa {
      */
     public int hoeveelGeldInKassa() {
 
-        return this.totaalPrijs;
+        return this.totaalGeldKassa;
     }
 
     /**
@@ -62,7 +79,7 @@ public class Kassa {
      * kassa.
      */
     public void resetWaarden() {
-        this.totaalArtikelen = 0;
-        this.totaalPrijs = 0;
+        this.totaalArtikelenKassa = 0;
+        this.totaalGeldKassa = 0;
     }
 }

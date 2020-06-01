@@ -1,15 +1,19 @@
 package main.java;
-public class KantineSimulatie {
+
+import java.util.ArrayList;
+
+public class KantineSimulatie1 {
 
     private Kantine kantine;
 
     public static final int DAGEN = 7;
-
+    private Artikel artikelen;
     /**
      * Constructor
      */
-    public KantineSimulatie() {
+    public KantineSimulatie1() {
         kantine = new Kantine();
+
     }
 
     /**
@@ -29,15 +33,16 @@ public class KantineSimulatie {
             // for lus voor personen
             for (int j = 0; j < 10 + i; j++) {
                 Persoon persoon = new Persoon();
-                kantine.loopPakSluitAan(persoon);
+                Dienblad dienblad = new Dienblad(persoon);
+                kantine.loopPakSluitAan(dienblad,vhjvmjhvmj);
             }
 
             // verwerk rij voor de kassa
             kantine.verwerkRijVoorKassa();
 
             // toon dagtotalen (artikelen en geld in kassa)
-            kantine.hoeveelheidGeldInKassa();
-            kantine.aantalArtikelen();
+            kantine.getKassa();
+
 
             // reset de kassa voor de volgende dag
             kantine.resetKassa();

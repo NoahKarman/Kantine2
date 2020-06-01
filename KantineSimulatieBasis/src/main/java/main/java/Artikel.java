@@ -9,7 +9,7 @@ package main.java;
 public class Artikel {
 
     private String naam;
-    private int prijs;
+    private double prijs;
 
 
     /**
@@ -19,7 +19,7 @@ public class Artikel {
      * @param prijs De prijs van het artikel
      */
 
-    public Artikel (String naam, int prijs) {
+    public Artikel (String naam, double prijs) {
 
         this.naam = naam;
         this.prijs = prijs;
@@ -34,7 +34,7 @@ public class Artikel {
     public Artikel () {
 
         String naam = getNaam();
-        int prijs = getPrijs();
+        double prijs = getPrijs();
     }
 
     /**
@@ -50,12 +50,15 @@ public class Artikel {
     /**
      * Stel de prijs van het artikel in
      *
-     * @param prijs - de prijs van het artikel
+     * @param prijs - de prijs van het artikel afgerond op 2 decimalen
      */
 
-    public void setPrijs(int prijs) {
+    public void setPrijs(double prijs) {
 
         this.prijs = prijs;
+        double roundOff = Math.round(prijs*100.0)/100.0;
+        System.out.println(roundOff);
+
     }
 
     /**
@@ -64,7 +67,7 @@ public class Artikel {
      * @return - prijs de prijs van het artikel
      */
 
-    public int getPrijs() {
+    public double getPrijs() {
         return prijs;
     }
 

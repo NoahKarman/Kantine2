@@ -8,6 +8,8 @@ public class KantineAanbod {
     private HashMap<String, Integer> startVoorraad;
     private HashMap<String, Double> prijzen;
 
+
+
     /**
      * Constructor. Het eerste argument is een lijst met artikelnamen, het tweede argument is
      * eenlijst met prijzen en het derde argument is een lijst met hoeveelheden. Let op: de
@@ -27,6 +29,32 @@ public class KantineAanbod {
             aanbod.put(artikelnaam[i], artikelen);
         }
     }
+
+    public void setAanbod(HashMap<String, ArrayList<Artikel>> aanbod) {
+        this.aanbod = aanbod;
+    }
+
+    public HashMap<String, ArrayList<Artikel>> getAanbod() {
+        return aanbod;
+    }
+
+    public void setPrijzen(HashMap<String, Double> prijzen) {
+        this.prijzen = prijzen;
+    }
+
+    public HashMap<String, Double> getPrijzen() {
+        return prijzen;
+    }
+
+    public void setStartVoorraad(HashMap<String, Integer> startVoorraad) {
+        this.startVoorraad = startVoorraad;
+    }
+
+    public HashMap<String, Integer> getStartVoorraad() {
+        return startVoorraad;
+    }
+
+
 
     private void vulVoorraadAan(String productnaam) {
         ArrayList<Artikel> huidigeVoorraad = aanbod.get(productnaam);
@@ -70,7 +98,7 @@ public class KantineAanbod {
      * Publieke methode om een artikel via naam van de stapel te pakken. Retouneert null als artikel
      * niet bestaat of niet op voorraad is.
      *
-     * @param naam (van artikel)
+     * @param productnaam (van artikel)
      * @return artikel (of null)
      */
     public Artikel getArtikel(String productnaam) {
