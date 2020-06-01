@@ -1,4 +1,7 @@
 package main.java;
+
+import java.util.HashMap;
+
 public class Kantine {
 
     private Kassa kassa;
@@ -12,6 +15,7 @@ public class Kantine {
     public Kantine() {
         kassarij = new KassaRij();
         kassa = new Kassa(kassarij);
+
 
 
 
@@ -38,11 +42,23 @@ public class Kantine {
      * voor de kassa.
      */
     public void loopPakSluitAan(Dienblad dienblad,String[] artikel) {
+
        int i;
         for(i=0;i<artikel.length;i++){
-            kantineaanbod.getAanbod();
+            String naam = artikel[i];
+            Artikel artikelen = kantineaanbod.getArtikel(naam);
+            dienblad.voegToe(artikelen);
+
+//            System.out.println("Naam van Artikel: "+naam);
+//            System.out.println(dienblad.getArtikelenHashMap());
+//
+//            HashMap<String,Artikel> Artikelhashmap = dienblad.getArtikelenHashMap();
+//            System.out.println("3");
+//
+//            dienblad.voegToe(Artikelhashmap.get(naam));
+
         }
-        kassarij.sluitAchteraan(dienblad.getKlant(),dienblad);
+        kassarij.sluitAchteraan(dienblad);
 
     }
 

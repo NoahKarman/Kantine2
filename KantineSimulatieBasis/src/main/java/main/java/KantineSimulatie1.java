@@ -1,7 +1,5 @@
 package main.java;
 
-import java.util.ArrayList;
-
 public class KantineSimulatie1 {
 
     private Kantine kantine;
@@ -34,7 +32,12 @@ public class KantineSimulatie1 {
             for (int j = 0; j < 10 + i; j++) {
                 Persoon persoon = new Persoon();
                 Dienblad dienblad = new Dienblad(persoon);
-                kantine.loopPakSluitAan(dienblad,vhjvmjhvmj);
+                String[] artikelen = new String[]{
+                    "Broodje pindakaas",
+                    "Koffie"
+                };
+                kantine.loopPakSluitAan(dienblad,artikelen);
+
             }
 
             // verwerk rij voor de kassa
@@ -60,7 +63,7 @@ public class KantineSimulatie1 {
         } else {
             dagen = Integer.parseInt(args[0]);
         }
-        KantineSimulatie sim = new KantineSimulatie();
+        KantineSimulatie2 sim = new KantineSimulatie2();
         sim.simuleer(dagen);
     }
 }

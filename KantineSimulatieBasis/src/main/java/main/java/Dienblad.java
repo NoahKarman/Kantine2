@@ -1,9 +1,8 @@
 package main.java;
         import main.java.Artikel;
         import main.java.Persoon;
-        import java.util.ArrayList;
-        import java.util.Iterator;
-        import java.util.Stack;
+
+        import java.util.*;
         import java.util.ArrayList;
 /**
  * Een Dienblad klasse
@@ -17,7 +16,7 @@ public class Dienblad {
     private Persoon persoon;
     private double totaalPrijs;
     private Persoon klant;
-
+//    private HashMap<String,Artikel> artikelHashMap;
     /**
      * Constructor
      */
@@ -32,7 +31,7 @@ public class Dienblad {
      * @param klant - Het persoon die het dienblad afrekent
      */
     public Dienblad(Persoon klant){
-
+        artikelen = new Stack<>();
         this.klant = klant;
     }
 
@@ -43,7 +42,7 @@ public class Dienblad {
      */
     public void voegToe(Artikel artikel) {
 
-        artikelen.add(artikel);
+        artikelen.push(artikel);
 
     }
 
@@ -105,5 +104,16 @@ public class Dienblad {
 
         }
     }
+
+//    public HashMap<String,Artikel> getArtikelenHashMap(){
+//        System.out.println(artikelen.size());
+//        Iterator<Artikel> it = artikelen.iterator();
+//        while(it.hasNext()){
+//            Artikel a = it.next();
+//            artikelHashMap.put(a.getNaam(),a);
+//
+//        }
+//        return artikelHashMap;
+//    }
 }
 

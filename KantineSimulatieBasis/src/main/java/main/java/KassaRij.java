@@ -19,21 +19,19 @@ public class KassaRij {
      * Constructor voor de KassaRij klase
      * @param kassarij - Een arraylist met daarin klanten
      */
-    public KassaRij(LinkedList<Dienblad> kassarij) {
-
-        this.kassarij = kassarij;
-    }
+//    public KassaRij(LinkedList<Dienblad> kassarij) {
+//
+//        this.kassarij = kassarij;
+//    }
 
     public KassaRij() {
-
+        kassarij = new LinkedList<Dienblad>();
     }
 
     /**
      * Persoon sluit achter in de rij aan
-     *
-     * @param klant - Een klant
      */
-    public void sluitAchteraan(Persoon klant,Dienblad dienblad) {
+    public void sluitAchteraan(Dienblad dienblad) {
 
         kassarij.add(dienblad);
     }

@@ -10,6 +10,7 @@ public class KantineAanbod {
 
 
 
+
     /**
      * Constructor. Het eerste argument is een lijst met artikelnamen, het tweede argument is
      * eenlijst met prijzen en het derde argument is een lijst met hoeveelheden. Let op: de
@@ -35,6 +36,11 @@ public class KantineAanbod {
     }
 
     public HashMap<String, ArrayList<Artikel>> getAanbod() {
+
+
+
+        //HashMap<String, ArrayList<Artikel>> aanbod = aanbod;
+
         return aanbod;
     }
 
