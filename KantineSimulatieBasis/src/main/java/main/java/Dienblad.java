@@ -101,7 +101,7 @@ public class Dienblad {
             Artikel a = it.next();
             System.out.println(a.getNaam());
             System.out.println(a.getPrijs());
-
+        //kassa moet er doorheen loopen zodat alle artikelen afgerekend kunnen worden
         }
     }
 
