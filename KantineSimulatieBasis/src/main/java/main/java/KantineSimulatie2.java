@@ -128,22 +128,26 @@ public class KantineSimulatie2 {
         for(int i = 0; i < dagen; i++) {
 
             // bedenk hoeveel personen vandaag binnen lopen
-            int aantalpersonen = getRandomValue(MIN_PERSONEN_PER_DAG,MAX_PERSONEN_PER_DAG);
+            int aantalpersonen = 100;
+            int aantalstudenten = 89;
+            int aantaldocenten = 10;
 
-            // laat de personen maar komen...
-            for (int j = 0; j < aantalpersonen; j++) {
+            // laat de studenten binnenkomen
+            for (int j = 0; j < aantalstudenten; j++) {
 
                 // maak persoon en dienblad aan, koppel ze
-                Persoon persoon = new Persoon();
-                Dienblad dienblad = new Dienblad(persoon);
+                for (int k = 0; k < aantalstudenten; k++) {
+                    Student student = new Student();
+                    Dienblad dienblad = new Dienblad(student);
+                }
 
                 // en bedenk hoeveel artikelen worden gepakt
-                int aantalartikelen = getRandomValue(1,10) ;
+                int aantalartikelen = getRandomValue(1, 10);
 
                 // genereer de "artikelnummers", dit zijn indexen
                 // van de artikelnamen
-                    int[] tepakken = getRandomArray(
-                    aantalartikelen, 0, AANTAL_ARTIKELEN-1);
+                int[] tepakken = getRandomArray(
+                        aantalartikelen, 0, AANTAL_ARTIKELEN - 1);
 
                 // vind de artikelnamen op basis van
                 // de indexen hierboven
@@ -152,14 +156,59 @@ public class KantineSimulatie2 {
 
                 // loop de kantine binnen, pak de gewenste
                 // artikelen, sluit aan
-
             }
+
+            // laat de docenten maar komen...
+            for (int l = 0; l < aantaldocenten; l++) {
+
+                // maak persoon en dienblad aan, koppel ze
+                for (int m = 0; m < aantaldocenten; m++) {
+                    Docent docent = new Docent();
+                    Dienblad dienblad = new Dienblad(docent);
+                }
+
+                // en bedenk hoeveel artikelen worden gepakt
+                int aantalartikelen = getRandomValue(1, 10);
+
+                // genereer de "artikelnummers", dit zijn indexen
+                // van de artikelnamen
+                int[] tepakken = getRandomArray(
+                        aantalartikelen, 0, AANTAL_ARTIKELEN - 1);
+
+                // vind de artikelnamen op basis van
+                // de indexen hierboven
+                String[] artikelen = geefArtikelNamen(tepakken);
+                kantine.loopPakSluitAan(dienblad, artikelen);
+
+                // loop de kantine binnen, pak de gewenste
+                // artikelen, sluit aan
+            }
+
+            KantineMedewerker kantinemedewerker = new KantineMedewerker();
+            Dienblad dienblad = new Dienblad(kantinemedewerker);
+
+            // en bedenk hoeveel artikelen worden gepakt
+            int aantalartikelen = getRandomValue(1, 10);
+
+            // genereer de "artikelnummers", dit zijn indexen
+            // van de artikelnamen
+            int[] tepakken = getRandomArray(
+                    aantalartikelen, 0, AANTAL_ARTIKELEN - 1);
+
+            // vind de artikelnamen op basis van
+            // de indexen hierboven
+            String[] artikelen = geefArtikelNamen(tepakken);
+            kantine.loopPakSluitAan(dienblad, artikelen);
+
+            // loop de kantine binnen, pak de gewenste
+            // artikelen, sluit aan
 
             kantine.verwerkRijVoorKassa();
             // verwerk rij voor de kassa
 
             System.out.println("dag" + " " + (i + 1));
             // druk de dagtotalen af
+
 
             System.out.println(aantalpersonen + " Personen geweest" + "\n" + "----------------");
             // druk af hoeveel personen binnen zijn gekomen
