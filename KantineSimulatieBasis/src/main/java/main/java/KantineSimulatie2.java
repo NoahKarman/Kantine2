@@ -131,7 +131,7 @@ public class KantineSimulatie2 {
         for(int i = 0; i < dagen; i++) {
 
             // bedenk hoeveel personen vandaag binnen lopen
-            int aantalpersonen = 10 ;
+            int aantalpersonen = getRandomValue(MIN_PERSONEN_PER_DAG,MAX_PERSONEN_PER_DAG);
 
             // laat de personen maar komen...
             for (int j = 0; j < aantalpersonen; j++) {
@@ -161,8 +161,7 @@ public class KantineSimulatie2 {
             kantine.verwerkRijVoorKassa();
             // verwerk rij voor de kassa
 
-            int personenbinnen = getRandomValue(MIN_PERSONEN_PER_DAG,MAX_PERSONEN_PER_DAG);
-            System.out.println(personenbinnen + " Personen geweest");
+            System.out.println(aantalpersonen + " Personen geweest");
             // druk af hoeveel personen binnen zijn gekomen
 
             int dagvandemaand = getRandomValue(MIN_DAGEN_PER_MAAND,MAX_DAGEN_PER_MAAND);
