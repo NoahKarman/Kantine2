@@ -70,7 +70,7 @@ public class KantineSimulatie2 {
 
         kantine.setKantineAanbod(kantineaanbod);
         //Print een artikel uit om te testen dat het werk
-        System.out.println(artikelnamen[1]);
+
     }
 
     /**
@@ -141,7 +141,7 @@ public class KantineSimulatie2 {
                 Dienblad dienblad = new Dienblad(persoon);
 
                 // en bedenk hoeveel artikelen worden gepakt
-                int aantalartikelen = 10 ;
+                int aantalartikelen = getRandomValue(1,10) ;
 
                 // genereer de "artikelnummers", dit zijn indexen
                 // van de artikelnamen
@@ -161,12 +161,11 @@ public class KantineSimulatie2 {
             kantine.verwerkRijVoorKassa();
             // verwerk rij voor de kassa
 
-            System.out.println(aantalpersonen + " Personen geweest");
-            // druk af hoeveel personen binnen zijn gekomen
-
-            int dagvandemaand = getRandomValue(MIN_DAGEN_PER_MAAND,MAX_DAGEN_PER_MAAND);
-            System.out.println("dag" + dagvandemaand);
+            System.out.println("dag" + " " + (i + 1));
             // druk de dagtotalen af
+
+            System.out.println(aantalpersonen + " Personen geweest" + "\n" + "----------------");
+            // druk af hoeveel personen binnen zijn gekomen
 
             kantine.resetKassa();
             // reset de kassa voor de volgende dag
