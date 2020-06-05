@@ -29,9 +29,6 @@ public class KantineSimulatie2 {
     // artikelen
     private static final String[] artikelnamen =
             new String[] {"Koffie", "Broodje pindakaas", "Broodje kaas", "Appelsap"};
-//    // dagen
-//    private static final int[] personenbinnen =
-//            new int[] {1,2,3,4,5,6,7,8,9,10};
 
     // prijzen
     private static double[] artikelprijzen = new double[] {1.50, 2.10, 1.65, 1.65};
