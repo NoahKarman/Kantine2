@@ -86,7 +86,7 @@ public class KantineSimulatie1 {
         } else {
             dagen = Integer.parseInt(args[0]);
         }
-        KantineSimulatie1 sim = new KantineSimulatie1();
+        KantineSimulatie2 sim = new KantineSimulatie2();
         sim.simuleer(dagen);
     }
 }

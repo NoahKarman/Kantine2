@@ -70,7 +70,7 @@ public class KantineSimulatie2 {
 
         kantine.setKantineAanbod(kantineaanbod);
         //Print een artikel uit om te testen dat het werk
-        System.out.println(artikelnamen[1]);
+
     }
 
     /**
