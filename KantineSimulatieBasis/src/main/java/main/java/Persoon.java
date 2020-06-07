@@ -5,7 +5,6 @@ package main.java;
  * 
  * @author Redouan Klick & Noah Karman
  * @version 15/5/2020
- * 
  */
 public class Persoon {
     
@@ -36,7 +35,7 @@ public class Persoon {
     }
 
     public Persoon() {
-        this.BSN = 0;
+        BSN = 0;
         voornaam = "";
         achternaam = "";
         geboortedatum = null;
