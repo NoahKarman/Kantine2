@@ -129,6 +129,67 @@ public class KantineSimulatie2 {
 
             // bedenk hoeveel personen vandaag binnen lopen
             int aantalpersonen = 100;
+            int kans = new Random().nextInt(100);
+
+            // laat de studenten binnenkomen
+            for (int j = 0; j < aantalpersonen; j++) {
+
+                if (kans <= 88) {
+                    Student student = new Student();
+                    Dienblad dienblad = new Dienblad(student);
+                }
+                if (kans <= 9) {
+                    Docent docent  = new Docent();
+                    Dienblad dienblad = new Dienblad(docent);
+                }
+                if (kans == 1) {
+                    KantineMedewerker kantineMedewerker = new KantineMedewerker();
+                    Dienblad dienblad = new Dienblad(kantineMedewerker);
+                }
+
+                // en bedenk hoeveel artikelen worden gepakt
+                int aantalartikelen = getRandomValue(1, 10);
+
+                // genereer de "artikelnummers", dit zijn indexen
+                // van de artikelnamen
+                int[] tepakken = getRandomArray(
+                        aantalartikelen, 0, AANTAL_ARTIKELEN - 1);
+
+                // vind de artikelnamen op basis van
+                // de indexen hierboven
+                String[] artikelen = geefArtikelNamen(tepakken);
+                kantine.loopPakSluitAan(dienblad, artikelen);
+
+                // loop de kantine binnen, pak de gewenste
+                // artikelen, sluit aan
+            }
+
+
+            kantine.verwerkRijVoorKassa();
+            // verwerk rij voor de kassa
+
+            System.out.println("dag" + " " + (i + 1));
+            // druk de dagtotalen af
+
+
+            System.out.println(aantalpersonen + " Personen geweest" + "\n" + "----------------");
+            // druk af hoeveel personen binnen zijn gekomen
+
+            kantine.resetKassa();
+            // reset de kassa voor de volgende dag
+
+
+        }
+    }
+}
+
+
+    /*public void simuleer(int dagen) {
+        // for lus voor dagen
+        for(int i = 0; i < dagen; i++) {
+
+            // bedenk hoeveel personen vandaag binnen lopen
+            int aantalpersonen = 100;
             int aantalstudenten = 89;
             int aantaldocenten = 10;
 
@@ -220,3 +281,4 @@ public class KantineSimulatie2 {
         }
     }
 }
+*/
