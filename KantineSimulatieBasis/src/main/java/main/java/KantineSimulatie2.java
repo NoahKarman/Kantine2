@@ -171,7 +171,6 @@ public class KantineSimulatie2 {
             System.out.println("dag" + " " + (i + 1));
             // druk de dagtotalen af
 
-
             System.out.println(aantalpersonen + " Personen geweest" + "\n" + "----------------");
             // druk af hoeveel personen binnen zijn gekomen
 
