@@ -135,4 +135,18 @@ public class Persoon {
             return "Onbekend";
         }
     }
+
+    @Override
+    public String toString ()
+    {
+        String bezoekers;
+        if (this instanceof Student){
+            bezoekers = "Student";
+        }else if (this instanceof Docent){
+            bezoekers = "Docent";
+        }else if (this instanceof KantineMedewerker){
+            bezoekers = "Kantine medewerker";
+        }else{ bezoekers = "Unknown";}
+        return bezoekers;
+    }
 }

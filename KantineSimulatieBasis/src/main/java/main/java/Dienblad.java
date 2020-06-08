@@ -105,6 +105,26 @@ public class Dienblad {
         }
     }
 
+    public int geefAantalArtikelen() {
+        int aantalartikelen = 0;
+        Iterator<Artikel> it = artikelen.iterator();
+        while (it.hasNext()) {
+            Artikel a = it.next();
+            aantalartikelen++;
+        }
+        return aantalartikelen;
+    }
+
+        public double geefPrijs(){
+        double prijs = 0.00;
+        Iterator<Artikel> it = artikelen.iterator();
+        while(it.hasNext()){
+            Artikel a = it.next();
+           prijs+= a.getPrijs();
+        }
+        return prijs;
+    }
+
 
 }
 
