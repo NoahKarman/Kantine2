@@ -14,13 +14,13 @@ private Administratie(){
      */
     public static void berekenGemiddeldAantal(int[] aantal) {
         // method body omitted
-        aantal = new int[] {45, 56, 34, 39, 40, 31};
-        int count =0;
-        for (int i=0;i<aantal.length -1;++i){
+
+        double   count =0;
+        for (int i=0;i<aantal.length;++i){
 
             count += aantal[i];
     }
-    int average = count/aantal.length;
+    double average = count/aantal.length;
         System.out.println(average);
 
     }
@@ -30,15 +30,24 @@ private Administratie(){
      *
      * @param omzet
      */
-//    public static void main(String[] args) {
-//        berekenGemiddeldAantal();
-//    }
+    public static void main(String[] args) {
 
-    public void berekenGemiddeldeOmzet(double[] omzet) {
+        int []aantal = new int[] {45, 56, 34, 39, 40, 31};
+        berekenGemiddeldAantal(aantal);
+        double [] omzet = new double[] {567.70,498.25,458.90};
+
+        berekenGemiddeldeOmzet(omzet);
+        double[] dagOmzet = new double[]{321.35, 450.50, 210.45, 190.85, 193.25, 159.90, 214.25, 220.90, 201.90, 242.70, 260.35};
+        double[] temp = berekenDagOmzet(dagOmzet);
+        laatDagOmzetZien(temp);
+
+    }
+
+    public static void berekenGemiddeldeOmzet(double[] omzet) {
         // method body omitted
-        omzet = new double[] {567.70,498.25,458.90};
+
         double count =0;
-        for (int i=0;i<omzet.length -1;++i){
+        for (int i=0;i<omzet.length;++i){
 
             count += omzet[i];
         }
@@ -54,19 +63,26 @@ private Administratie(){
      */
 
     public static double[] berekenDagOmzet(double[] omzet) {
-        double[] temp = new double[7];
-        for(int i = 0; i < 7; i++) {
+        double[] temp = new double[DAYS_IN_WEEK];
+        for(int i = 0; i < DAYS_IN_WEEK; i++) {
 
             int j = 0;
-            while (j < 7) {
+            while ((i + (DAYS_IN_WEEK * j)) < omzet.length  ) {
 
-                temp[i] += omzet[i + 7 * j];
+                temp[i] += omzet[i + DAYS_IN_WEEK * j];
                 j++;
-
-                // omitted
 
             }
         }
         return temp;
+    }
+
+    public static void laatDagOmzetZien (double [] temp){
+
+        for (double omzet: temp) {
+            double roundOff = Math.round(omzet*100.0)/100.0;
+            System.out.println(roundOff);
+
+        }
     }
 }
