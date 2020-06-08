@@ -12,7 +12,7 @@ private Administratie(){
      *
      * @param aantal
      */
-    public static void berekenGemiddeldAantal(int[] aantal) {
+    public static double berekenGemiddeldAantal(int[] aantal) {
         // method body omitted
 
         double   count =0;
@@ -21,7 +21,7 @@ private Administratie(){
             count += aantal[i];
     }
     double average = count/aantal.length;
-        System.out.println(average);
+        return  average;
 
     }
 
@@ -43,7 +43,7 @@ private Administratie(){
 
     }
 
-    public static void berekenGemiddeldeOmzet(double[] omzet) {
+    public static double berekenGemiddeldeOmzet(double[] omzet) {
         // method body omitted
 
         double count =0;
@@ -52,7 +52,7 @@ private Administratie(){
             count += omzet[i];
         }
         double average = count/omzet.length;
-        System.out.println(average);
+        return average;
     }
 
     /**

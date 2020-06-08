@@ -31,7 +31,7 @@ public class KantineSimulatie2 {
             new String[] {"Koffie", "Broodje pindakaas", "Broodje kaas", "Appelsap"};
 
     // prijzen
-    private static double[] artikelprijzen = new double[] {1.50, 2.10, 1.65, 1.65};
+    private static final double[] artikelprijzen = new double[] {1.50, 2.10, 1.65, 1.65};
 
     // minimum en maximum aantal artikelen per soort
     private static final int MIN_ARTIKELEN_PER_SOORT = 10;
@@ -124,27 +124,49 @@ public class KantineSimulatie2 {
      * @param dagen
      */
     public void simuleer(int dagen) {
+        // temporary arrays om de omze en verkochte artikelen op te slaan
+        double[] omzeten = new double[dagen];
+        int[] aantalVerkocht = new int[dagen];
+
         // for lus voor dagen
         for(int i = 0; i < dagen; i++) {
 
             // bedenk hoeveel personen vandaag binnen lopen
-            int aantalpersonen = 100;
-            int kans = new Random().nextInt(100);
+            //int aantalpersonen = 100;
 
-            // laat de studenten binnenkomen
+            int aantalpersonen = getRandomValue(0,100);
+            int studenten = 0;
+            int docenten  = 0;
+            int medewerkers = 0;
+
+            // laat de bezoekers binnenkomen
             for (int j = 0; j < aantalpersonen; j++) {
+                int kans = new Random().nextInt(100);
+                Persoon persoon;
 
-                if (kans <= 88) {
-                    Student student = new Student();
-                    Dienblad dienblad = new Dienblad(student);
+                if (kans <= 89) {
+                    persoon = new Student();
+
                 }
-                if (kans <= 9) {
-                    Docent docent  = new Docent();
-                    Dienblad dienblad = new Dienblad(docent);
+                else if (kans <= (89 + 10)) {
+                    persoon = new Docent();
+
                 }
-                if (kans == 1) {
-                    KantineMedewerker kantineMedewerker = new KantineMedewerker();
-                    Dienblad dienblad = new Dienblad(kantineMedewerker);
+                else {
+                    persoon = new KantineMedewerker();
+
+                }
+                Dienblad dienblad = new Dienblad(persoon);
+
+
+                String bezoeker = dienblad.getKlant().toString();
+
+                if (bezoeker.equals("Student")){
+                    studenten++;
+                }  else if (bezoeker.equals("Docent")){
+                    docenten++;
+                } else if (bezoeker.equals("Kantine medewerker")){
+                   medewerkers++;
                 }
 
                 // en bedenk hoeveel artikelen worden gepakt
@@ -164,22 +186,45 @@ public class KantineSimulatie2 {
                 // artikelen, sluit aan
             }
 
-
-            kantine.verwerkRijVoorKassa();
             // verwerk rij voor de kassa
+            kantine.verwerkRijVoorKassa();
 
-            System.out.println("dag" + " " + (i + 1));
             // druk de dagtotalen af
+            System.out.println("dag" + " " + (i + 1));
+
 
 
             System.out.println(aantalpersonen + " Personen geweest" + "\n" + "----------------");
             // druk af hoeveel personen binnen zijn gekomen
+            System.out.println("Studenten " + studenten + " Docenten " + docenten + " Kantine medewerkers " + medewerkers  );
+
+            // Vul de lijst met artikelen en omzeten met de dagelijke waarde
+            int aantalArtikelen = kantine.getKassa().aantalArtikelen();
+            aantalVerkocht[i] = aantalArtikelen;
+            double omzet = kantine.getKassa().hoeveelGeldInKassa();
+            omzeten[i] = omzet;
+
+            double roundOff = Math.round(omzet*100.0)/100.0;
+
+            System.out.println("Dag omzet" + roundOff );
+            System.out.println("Verkochte artikelen" + aantalArtikelen );
+
 
             kantine.resetKassa();
             // reset de kassa voor de volgende dag
 
 
         }
+
+        double [] wekelijkeInkomen = Administratie.berekenDagOmzet(omzeten);
+        double gemiddeldeArtikelen = Administratie.berekenGemiddeldAantal(aantalVerkocht);
+        double gemiddeldeOmzet = Administratie.berekenGemiddeldeOmzet(omzeten);
+        double roundOff = Math.round(gemiddeldeArtikelen*100.0)/100.0;
+
+        double roundOff2 = Math.round(gemiddeldeOmzet*100.0)/100.0;
+
+        System.out.println("Week: " + roundOff + " " + roundOff2);
+        Administratie.laatDagOmzetZien(wekelijkeInkomen);
     }
 }
 

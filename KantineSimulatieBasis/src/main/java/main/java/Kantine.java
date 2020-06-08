@@ -54,11 +54,11 @@ public class Kantine {
      */
     public void loopPakSluitAan(Dienblad dienblad,String[] artikel) {
 
-       int i;
-        for(i=0;i<artikel.length;i++){
+
+        for(int i=0;i<artikel.length;i++){
             String naam = artikel[i];
             Artikel artikelen = kantineaanbod.getArtikel(naam);
-//            dienblad.voegToe(artikelen);
+            dienblad.voegToe(artikelen);
         }
         kassarij.sluitAchteraan(dienblad);
 
@@ -69,7 +69,8 @@ public class Kantine {
      */
     public void verwerkRijVoorKassa() {
         while (!kassarij.erIsEenRij()) {
-            kassarij.eerstePersoonInRij();
+            Dienblad dienblad = kassarij.eerstePersoonInRij();
+            this.getKassa().rekenAf(dienblad);
         }
     }
 
