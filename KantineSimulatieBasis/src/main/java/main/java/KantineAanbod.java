@@ -110,9 +110,7 @@ public class KantineAanbod {
         for (int j = huidigeHoeveelheid; j < startHoeveelheid; j++) {
             huidigeVoorraad.add(new Artikel(productnaam, prijs));
         }
-        for (int j = huidigeHoeveelheid; j < 1; j++) {
-            huidigeVoorraad.add(new Artikel(productnaam, prijs));
-        }
+
         aanbod.put(productnaam, huidigeVoorraad);
     }
 

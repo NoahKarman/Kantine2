@@ -209,12 +209,13 @@ public class KantineSimulatie2 {
             System.out.println("Dag omzet" + roundOff );
             System.out.println("Verkochte artikelen" + aantalArtikelen );
 
-
-            kantine.resetKassa();
             // reset de kassa voor de volgende dag
+            kantine.resetKassa();
 
 
         }
+
+        // De gemiddelde artikelen en omzet die weekelijks gekocht is
 
         double [] wekelijkeInkomen = Administratie.berekenDagOmzet(omzeten);
         double gemiddeldeArtikelen = Administratie.berekenGemiddeldAantal(aantalVerkocht);

@@ -95,15 +95,6 @@ public class Dienblad {
      *
      */
 
-    public void getAllArtikel(){
-        Iterator<Artikel> it = artikelen.iterator();
-        while(it.hasNext()){
-            Artikel a = it.next();
-            System.out.println(a.getNaam());
-            System.out.println(a.getPrijs());
-        //kassa moet er doorheen loopen zodat alle artikelen afgerekend kunnen worden
-        }
-    }
 
     public int geefAantalArtikelen() {
         int aantalartikelen = 0;
