@@ -194,7 +194,7 @@ public class KantineSimulatie2 {
             // van de artikelnamen
             int[] tepakken = getRandomArray(
                     aantalartikelen, 0, AANTAL_ARTIKELEN - 1);
-
+            
             // vind de artikelnamen op basis van
             // de indexen hierboven
             String[] artikelen = geefArtikelNamen(tepakken);
