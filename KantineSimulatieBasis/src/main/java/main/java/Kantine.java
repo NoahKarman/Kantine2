@@ -58,7 +58,7 @@ public class Kantine {
         for(i=0;i<artikel.length;i++){
             String naam = artikel[i];
             Artikel artikelen = kantineaanbod.getArtikel(naam);
-            dienblad.voegToe(artikelen);
+//            dienblad.voegToe(artikelen);
         }
         kassarij.sluitAchteraan(dienblad);
 
