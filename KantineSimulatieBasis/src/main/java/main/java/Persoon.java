@@ -13,6 +13,7 @@ public class Persoon {
     private String achternaam;
     private Datum geboortedatum;
     private char geslacht;
+    private Betaalwijze betaalwijze;
 
     /**
      * Constructor voor de klasse Persoon
@@ -40,6 +41,14 @@ public class Persoon {
         achternaam = "";
         geboortedatum = null;
         geslacht = 'O';
+    }
+
+    public void setBetaalwijze(Betaalwijze betaalwijze) {
+        this.betaalwijze = betaalwijze;
+    }
+
+    public Betaalwijze getBetaalwijze() {
+        return betaalwijze;
     }
 
     /**

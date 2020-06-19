@@ -25,11 +25,7 @@ private Administratie(){
 
     }
 
-    /**
-     * Deze methode berekent van de double array omzet de gemiddelde waarde
-     *
-     * @param omzet
-     */
+
     public static void main(String[] args) {
 
         int []aantal = new int[] {45, 56, 34, 39, 40, 31};
@@ -42,6 +38,12 @@ private Administratie(){
         laatDagOmzetZien(temp);
 
     }
+
+    /**
+     * Deze methode berekent van de double array omzet de gemiddelde waarde
+     *
+     * @param omzet
+     */
 
     public static double berekenGemiddeldeOmzet(double[] omzet) {
         // method body omitted
@@ -81,7 +83,7 @@ private Administratie(){
 
         for (double omzet: temp) {
             double roundOff = Math.round(omzet*100.0)/100.0;
-            System.out.println(roundOff);
+            System.out.println("Omzet van de dag - " + roundOff);
 
         }
     }

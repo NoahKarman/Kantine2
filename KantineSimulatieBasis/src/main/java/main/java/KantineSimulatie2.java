@@ -156,9 +156,21 @@ public class KantineSimulatie2 {
                     persoon = new KantineMedewerker();
 
                 }
+                persoon.setVoornaam("RedouanK");
                 Dienblad dienblad = new Dienblad(persoon);
-
-
+                // Betaal manier
+                int bwz = getRandomValue(0,1);
+                Betaalwijze betaalwijze;
+                if(bwz == 0) {
+                    //Contant
+                    betaalwijze = new Contant();
+                    betaalwijze.setSaldo(2000);
+                }else{
+                    //Pin
+                    betaalwijze = new Pinpas();
+                    betaalwijze.setSaldo(2000);
+                }
+                persoon.setBetaalwijze(betaalwijze);
                 String bezoeker = dienblad.getKlant().toString();
 
                 if (bezoeker.equals("Student")){
@@ -190,13 +202,13 @@ public class KantineSimulatie2 {
             kantine.verwerkRijVoorKassa();
 
             // druk de dagtotalen af
-            System.out.println("dag" + " " + (i + 1));
+            System.out.println("dag" + " " + (i + 1) + "\n" + "----------------");
 
 
 
-            System.out.println(aantalpersonen + " Personen geweest" + "\n" + "----------------");
+            System.out.println(aantalpersonen + " Personen geweest");
             // druk af hoeveel personen binnen zijn gekomen
-            System.out.println("Studenten " + studenten + " Docenten " + docenten + " Kantine medewerkers " + medewerkers  );
+            System.out.println("Studenten " + studenten + " / Docenten " + docenten + " / Kantine medewerkers " + medewerkers  );
 
             // Vul de lijst met artikelen en omzeten met de dagelijke waarde
             int aantalArtikelen = kantine.getKassa().aantalArtikelen();
@@ -206,8 +218,8 @@ public class KantineSimulatie2 {
 
             double roundOff = Math.round(omzet*100.0)/100.0;
 
-            System.out.println("Dag omzet" + roundOff );
-            System.out.println("Verkochte artikelen" + aantalArtikelen );
+            System.out.println("Dag omzet " + roundOff );
+            System.out.println("Verkochte artikelen " + aantalArtikelen + "\n" + "----------------" );
 
             // reset de kassa voor de volgende dag
             kantine.resetKassa();
@@ -224,7 +236,7 @@ public class KantineSimulatie2 {
 
         double roundOff2 = Math.round(gemiddeldeOmzet*100.0)/100.0;
 
-        System.out.println("Week: " + roundOff + " " + roundOff2);
+        System.out.println("Week: " + "Gemiddelde artikelen verkocht - " + roundOff + ", " + "Gemiddelde omzet - " + roundOff2 + ".");
         Administratie.laatDagOmzetZien(wekelijkeInkomen);
     }
 }

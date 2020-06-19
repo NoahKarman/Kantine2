@@ -1,4 +1,5 @@
 package main.java;
+import java.io.IOException;
 import java.util.Iterator;
 import java.util.ArrayList;
 
@@ -43,8 +44,31 @@ public class Kassa {
      *
      */
     public void rekenAf(Dienblad klant) {
-        this.totaalArtikelenKassa += klant.geefAantalArtikelen();
-        this.totaalGeldKassa += klant.geefPrijs();
+
+
+        Betaalwijze betaalwijze = klant.getKlant().getBetaalwijze();
+        if (klant.getKlant() instanceof KortingskaartHouder) {
+            Persoon p = klant.getKlant();
+            double kortingsBon;
+            kortingsBon = klant.geefPrijs() * (((KortingskaartHouder) p).geefKortingsPercentage() * 0.01);
+            if (((KortingskaartHouder) p).heeftMaximum()){
+            if((kortingsBon > ((KortingskaartHouder) p).geefMaximum())){
+                kortingsBon = ((KortingskaartHouder)p).geefMaximum();
+                }
+            }
+            totaalGeldKassa -= kortingsBon;
+            //tester korting
+            System.out.println("Kortingsbon: " + kortingsBon + " $");
+        }
+        try
+        {
+            betaalwijze.betaal(klant.geefPrijs());
+            this.totaalArtikelenKassa += klant.geefAantalArtikelen();
+            this.totaalGeldKassa += klant.geefPrijs();
+
+        }catch(TeWeinigGeldExeption e){
+            System.out.println(klant.getKlant().getVoornaam() + "ERROR:Niet genoeg saldo");
+        }
     }
 
 

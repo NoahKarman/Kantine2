@@ -6,7 +6,7 @@ package main.java;
  * @author Noah Karman & Redouan Klick
  * @version 5/6/2020
  */
-public class Docent extends Persoon {
+public class Docent extends Persoon implements KortingskaartHouder {
 
     private String afkorting;
     private String afdeling;
@@ -63,5 +63,29 @@ public class Docent extends Persoon {
      */
     public void setAfdeling(String afdeling) {
         this.afdeling = afdeling;
+    }
+
+    /**
+     * Methode om kortingspercentage op te vragen
+     */
+    @Override
+    public double geefKortingsPercentage() {
+        return 25;
+    }
+
+    /**
+     * Methode om op te vragen of er maximum per keer aan de korting zit
+     */
+    @Override
+    public boolean heeftMaximum() {
+        return true;
+    }
+
+    /**
+     * Methode om het maximum kortingsbedrag op te vragen
+     */
+    @Override
+    public double geefMaximum() {
+        return 1;
     }
 }

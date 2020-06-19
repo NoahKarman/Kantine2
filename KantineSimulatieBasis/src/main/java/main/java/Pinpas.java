@@ -16,8 +16,12 @@ public class Pinpas extends Betaalwijze {
     /**
      * Methode om betaling af te handelen
      */
-    public boolean betaal(double tebetalen) {
-        // method body omitted
-        return true; // klopt niet, later fixen (zelf aangepast )
+    public void betaal(double tebetalen) throws TeWeinigGeldExeption {
+        if (kredietlimiet <= (saldo - tebetalen)){
+            saldo -= tebetalen;
+        } else {
+            throw new TeWeinigGeldExeption("Error: Te weinig saldo");
+        }
+
     }
 }
