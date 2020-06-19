@@ -206,7 +206,9 @@ public class KantineSimulatie2 {
 
 
 
+
             System.out.println(aantalpersonen + " Personen geweest");
+
             // druk af hoeveel personen binnen zijn gekomen
             System.out.println("Studenten " + studenten + " / Docenten " + docenten + " / Kantine medewerkers " + medewerkers  );
 
@@ -313,7 +315,7 @@ public class KantineSimulatie2 {
             // van de artikelnamen
             int[] tepakken = getRandomArray(
                     aantalartikelen, 0, AANTAL_ARTIKELEN - 1);
-
+            
             // vind de artikelnamen op basis van
             // de indexen hierboven
             String[] artikelen = geefArtikelNamen(tepakken);
