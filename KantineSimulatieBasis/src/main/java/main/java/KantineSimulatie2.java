@@ -164,11 +164,11 @@ public class KantineSimulatie2 {
                 if(bwz == 0) {
                     //Contant
                     betaalwijze = new Contant();
-                    betaalwijze.setSaldo(2000);
+                    betaalwijze.setSaldo(10);
                 }else{
                     //Pin
                     betaalwijze = new Pinpas();
-                    betaalwijze.setSaldo(2000);
+                    betaalwijze.setSaldo(10);
                 }
                 persoon.setBetaalwijze(betaalwijze);
                 String bezoeker = dienblad.getKlant().toString();
